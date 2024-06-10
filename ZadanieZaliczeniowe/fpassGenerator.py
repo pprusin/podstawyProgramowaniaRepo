@@ -16,26 +16,26 @@ def generate_password(length, use_special_chars):
     return password
 
 def main():
-    print("Generator Bezpiecznych Haseł")
+    print("Secure Password Generator")
     
     try:
-        num_passwords = int(input("Ile haseł chcesz wygenerować? "))
-        length = int(input("Jak długie ma być każde hasło? (minimum 12) "))
-        include_special_chars = input("Czy chcesz uwzględnić znaki specjalne? (tak/nie) ").strip().lower() == 'tak'
+        num_passwords = int(input("How many passwords do you want to generate? "))
+        length = int(input("How long should each password be? (minimum 12) "))
+        include_special_chars = input("Do you want to include special characters? (yes/no) ").strip().lower() == 'yes'
         
         if length < 12:
-            print("Długość hasła musi wynosić przynajmniej 12 znaków.")
+            print("Password length must be at least 12 characters.")
             return
 
-        print("\nWygenerowane Hasła:")
+        print("\nGenerated Passwords:")
         for i in range(num_passwords):
             password = generate_password(length, include_special_chars)
             print(f"{i + 1}. {password}")
 
     except ValueError:
-        print("Wprowadzono nieprawidłowe dane. Proszę wprowadzić poprawne liczby.")
+        print("Invalid input. Please enter valid numbers.")
     except Exception as e:
-        print(f"Wystąpił błąd: {e}")
+        print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
